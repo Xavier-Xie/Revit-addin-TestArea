@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RevitAddIns>
+  <AddIn Type="Command">
+    <Text>Command RevitAddin_test1</Text>
+    <Description>Some description for RevitAddin_test1</Description>
+    <Assembly>RevitAddin_test1.dll</Assembly>
+    <FullClassName>RevitAddin_test1.Command</FullClassName>
+    <ClientId>8892d8e5-d8ff-45bf-a433-53fd7eb25f15</ClientId>
+    <VendorId>com.ali.asad</VendorId>
+    <VendorDescription>Ali Asad, https://twitter.com/imaliasad</VendorDescription>
+  </AddIn>
+  <AddIn Type="Application">
+    <Name>Application RevitAddin_test1</Name>
+    <Assembly>RevitAddin_test1.dll</Assembly>
+    <FullClassName>RevitAddin_test1.App</FullClassName>
+    <ClientId>7e079440-8e5a-4f85-b44a-adc079bd826d</ClientId>
+    <VendorId>com.ali.asad</VendorId>
+    <VendorDescription>Ali Asad, https://twitter.com/imaliasad</VendorDescription>
+  </AddIn>
+</RevitAddIns>

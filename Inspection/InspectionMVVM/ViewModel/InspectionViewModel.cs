@@ -16,6 +16,35 @@ namespace InspectionMVVM.ViewModel
         private UIDocument UIDoc { get; }
         private InspectionView inspectionView;
 
+        public InspectionView InspectionView
+        {
+            get 
+            {
+                if (inspectionView == null)
+                {
+                    inspectionView = new InspectionView() { DataContext = this };
+                }
+                return inspectionView; 
+            }
+            set 
+            {
+                inspectionView = value;
+                OnPropertyChanged(nameof(inspectionView));
+            }
+        }
+
+        private bool isElectrical;
+
+        public bool IsElectrical
+        {
+            get { return isElectrical; }
+            set
+            {
+                isElectrical = value;
+                OnPropertyChanged(nameof(IsElectrical));
+            }
+        }
+
         public RelayCommand<object> ButtonRun { get; set; }
 
         public InspectionViewModel(UIDocument uidoc)
@@ -51,24 +80,6 @@ namespace InspectionMVVM.ViewModel
             }
         }
 
-        private bool isElectrical;
-
-        public bool IsElectrical
-        {
-            get { return isElectrical; }
-            set 
-            {
-                isElectrical = value;
-                OnPropertyChanged(nameof(IsElectrical));
-            }
-        }
-
-
-        public InspectionView InspectionView
-        {
-            get { return inspectionView; }
-            set { inspectionView = value; }
-        }
 
     }
 }

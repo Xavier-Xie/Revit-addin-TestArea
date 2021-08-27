@@ -1,0 +1,12 @@
+D:\OneDrive\OneDrive - cumt.edu.cn\CS\Revit\revit-addin-MEP\MEPStandardInspection\Inspection\bin\Debug\Inspection.dll
+D:\OneDrive\OneDrive - cumt.edu.cn\CS\Revit\revit-addin-MEP\MEPStandardInspection\Inspection\bin\Debug\Inspection.pdb
+D:\OneDrive\OneDrive - cumt.edu.cn\CS\Revit\revit-addin-MEP\MEPStandardInspection\Inspection\obj\Debug\InspectionMVVM\View\InspectionView.baml
+D:\OneDrive\OneDrive - cumt.edu.cn\CS\Revit\revit-addin-MEP\MEPStandardInspection\Inspection\obj\Debug\InspectionMVVM\View\InspectionView.g.cs
+D:\OneDrive\OneDrive - cumt.edu.cn\CS\Revit\revit-addin-MEP\MEPStandardInspection\Inspection\obj\Debug\Inspection_MarkupCompile.cache
+D:\OneDrive\OneDrive - cumt.edu.cn\CS\Revit\revit-addin-MEP\MEPStandardInspection\Inspection\obj\Debug\Inspection_MarkupCompile.lref
+D:\OneDrive\OneDrive - cumt.edu.cn\CS\Revit\revit-addin-MEP\MEPStandardInspection\Inspection\obj\Debug\Inspection.g.resources
+D:\OneDrive\OneDrive - cumt.edu.cn\CS\Revit\revit-addin-MEP\MEPStandardInspection\Inspection\obj\Debug\Inspection.Properties.Resources.resources
+D:\OneDrive\OneDrive - cumt.edu.cn\CS\Revit\revit-addin-MEP\MEPStandardInspection\Inspection\obj\Debug\Inspection.csproj.GenerateResource.cache
+D:\OneDrive\OneDrive - cumt.edu.cn\CS\Revit\revit-addin-MEP\MEPStandardInspection\Inspection\obj\Debug\Inspection.csproj.CoreCompileInputs.cache
+D:\OneDrive\OneDrive - cumt.edu.cn\CS\Revit\revit-addin-MEP\MEPStandardInspection\Inspection\obj\Debug\Inspection.dll
+D:\OneDrive\OneDrive - cumt.edu.cn\CS\Revit\revit-addin-MEP\MEPStandardInspection\Inspection\obj\Debug\Inspection.pdb

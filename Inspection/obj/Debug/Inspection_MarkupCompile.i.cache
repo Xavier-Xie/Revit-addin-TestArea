@@ -1,19 +1,19 @@
 ﻿Inspection
 
 
-winexe
+library
 C#
 .cs
-D:\OneDrive\OneDrive - cumt.edu.cn\CS\Revit\revit-addin-MEP\MEPStandardInspection\Inspection\obj\Debug\
+D:\OneDrive - cumt.edu.cn\CS\Revit\revit-addin-MEP\MEPStandardInspection\Inspection\obj\Debug\
 Inspection
 none
 false
 DEBUG;TRACE
-D:\OneDrive\OneDrive - cumt.edu.cn\CS\Revit\revit-addin-MEP\MEPStandardInspection\Inspection\App.xaml
-1-423072273
 
-111775618018
-151438560853
+1-1159831282
+
+11-1759956683
+151759901214
 InspectionMVVM\View\InspectionView.xaml;
 
 False

@@ -36,6 +36,6 @@
                 <ComboBoxItem Content="选择的范围"/>
             </ComboBox>
         </StackPanel>
-        <Button Content="Run" Grid.Row="2" Height="30" Command="{Binding ButtonRun}" Margin="15 0"/>
+        <Button Content="运行" Grid.Row="2" Height="30" Command="{Binding ButtonRun}" Margin="15 0"/>
     </Grid>
 </Window>

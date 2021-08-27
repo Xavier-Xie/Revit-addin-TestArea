@@ -11,13 +11,14 @@ using InspectionMVVM.ViewModel;
 namespace RevitAPI
 {
     [Transaction(TransactionMode.Manual)]
-    class InspectionCommand : IExternalCommand
+    public class InspectionCommand : IExternalCommand
     {
         public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
         {
             var uidoc = commandData.Application.ActiveUIDocument;
             var vm = new InspectionViewModel(uidoc);
-            
+            vm.InspectionView.ShowDialog();
+            return Result.Succeeded;
         }
     }
 }

@@ -9,7 +9,7 @@ namespace Inspection.DBhelper
         public Object Connect()
         {
             //连接数据库
-            string sAccessConnection = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source = D:\OneDrive\OneDrive - cumt.edu.cn\大创\个人资料\Demo1\MEP_Standard.mdb";
+            string sAccessConnection = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source = D:\OneDrive - cumt.edu.cn\大创\个人资料\Demo1\MEP_Standard.accdb";
             OleDbConnection connection = new OleDbConnection(sAccessConnection);
             //建立连接
             connection.Open();

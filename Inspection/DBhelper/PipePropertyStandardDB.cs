@@ -8,7 +8,7 @@ namespace Inspection.DBhelper
     {
         public double GetGeneralSlope(string str1, string str2, int diameter)
         {
-            string sAccessConnection = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source = C:\Users\Lenovo\Documents\Database1.mdb";
+            string sAccessConnection = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source = D:\OneDrive - cumt.edu.cn\大创\个人资料\Demo1\MEP_Standard.accdb";
             OleDbConnection connection = new OleDbConnection(sAccessConnection);
             connection.Open();
             OleDbCommand command = new OleDbCommand
@@ -30,7 +30,7 @@ namespace Inspection.DBhelper
         }
         public double GetMinSlope(string str1, string str2, int diameter)
         {
-            string sAccessConnection = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source = C:\Users\Lenovo\Documents\Database1.mdb";
+            string sAccessConnection = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source = D:\OneDrive - cumt.edu.cn\大创\个人资料\Demo1\MEP_Standard.accdb";
             OleDbConnection connection = new OleDbConnection(sAccessConnection);
             connection.Open();
             OleDbCommand command = new OleDbCommand
@@ -52,7 +52,7 @@ namespace Inspection.DBhelper
         }
         public int GetDiameter(string str)
         {
-            string sAccessConnection = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source = C:\Users\Lenovo\Documents\Database1.mdb";
+            string sAccessConnection = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source = D:\OneDrive - cumt.edu.cn\大创\个人资料\Demo1\MEP_Standard.accdb";
             OleDbConnection connection = new OleDbConnection(sAccessConnection);
             connection.Open();
             OleDbCommand command = new OleDbCommand
@@ -72,7 +72,7 @@ namespace Inspection.DBhelper
 
         public string GetSlopeSource(string str1, string str2, int diameter)
         {
-            string sAccessConnection = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source = C:\Users\Lenovo\Documents\Database1.mdb";
+            string sAccessConnection = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source = D:\OneDrive - cumt.edu.cn\大创\个人资料\Demo1\MEP_Standard.accdb";
             OleDbConnection connection = new OleDbConnection(sAccessConnection);
             connection.Open();
             OleDbCommand command = new OleDbCommand
@@ -95,7 +95,7 @@ namespace Inspection.DBhelper
         }
         public string GetDiameterSource(string pipe)
         {
-            string sAccessConnection = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source = C:\Users\Lenovo\Documents\Database1.mdb";
+            string sAccessConnection = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source = D:\OneDrive - cumt.edu.cn\大创\个人资料\Demo1\MEP_Standard.accdb";
             OleDbConnection connection = new OleDbConnection(sAccessConnection);
             connection.Open();
             OleDbCommand command = new OleDbCommand

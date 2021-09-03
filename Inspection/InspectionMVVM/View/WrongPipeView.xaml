@@ -6,7 +6,11 @@
         xmlns:local="clr-namespace:Inspection.InspectionMVVM.View"
         mc:Ignorable="d"
         Title="WrongPipeView" Height="250" Width="500">
-    <StackPanel x:Name="stackPanel"  Background="#FFCCCCCC">
-        <ListBox x:Name="listBoxStudents" Height="225" Margin="5"/>
-    </StackPanel>
+    <DataGrid AutoGenerateColumns="False" GridLinesVisibility="None" CanUserAddRows="False" CanUserDeleteRows="False"
+              Background="#FFF0F0F0" ItemsSource="{Binding }">
+        <DataGrid.Columns>
+            <DataGridTextColumn Header="出错管道类型" />
+        </DataGrid.Columns>
+        
+    </DataGrid>
 </Window>

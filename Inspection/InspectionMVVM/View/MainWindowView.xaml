@@ -34,18 +34,21 @@
                 <Label Content="请选择对应管道" HorizontalAlignment="Center"  FontWeight="Bold"/>
             </Grid>
 
-            <StackPanel Grid.Row="1" Margin="1" Background="#FFF0F0F0">
-                <CheckBox Content="入户管" Style="{StaticResource checkboxStyle}" />
-                <CheckBox Content="排出管" Style="{StaticResource checkboxStyle}"/>
-                <CheckBox Content="横支管" Style="{StaticResource checkboxStyle}" 
-                          Command="{Binding HorizontalBranchCommand}" />
-                <CheckBox Content="**管" Style="{StaticResource checkboxStyle}"/>
-                <CheckBox Content="**管" Style="{StaticResource checkboxStyle}"/>
-                <CheckBox Content="**管" Style="{StaticResource checkboxStyle}"/>
-                <CheckBox Content="**管" Style="{StaticResource checkboxStyle}"/>
-                <CheckBox Content="**管" Style="{StaticResource checkboxStyle}"/>
-                <CheckBox Content="**管" Style="{StaticResource checkboxStyle}"/>
-            </StackPanel>
+            <DataGrid AutoGenerateColumns="False" GridLinesVisibility="None" CanUserAddRows="False" CanUserDeleteRows="False"
+                      Grid.Row="1" Margin="1" Background="#FFF0F0F0" ItemsSource="{Binding SelectElems}" >
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="管道类型" Binding="{Binding ElemsName}" Width="70"/>
+                    <DataGridTemplateColumn Header="选中" SortMemberPath="IsSelected" Width="70" >
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <CheckBox IsChecked="{Binding Path=IsSelect,UpdateSourceTrigger=PropertyChanged}"
+                                          VerticalAlignment="Center" HorizontalAlignment="Center"
+                                          Command="{Binding Path=SelectElemsCommand}"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
             <Grid Grid.Row="2" Margin="1" Background="#FFF0F0F0">
                 <Button Content="导出总范围" HorizontalAlignment="Center"  VerticalAlignment="Center" Width="75" 
                         />

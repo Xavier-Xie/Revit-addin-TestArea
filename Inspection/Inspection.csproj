@@ -65,9 +65,11 @@
     <Compile Include="DBhelper\AccessHelper.cs" />
     <Compile Include="DBhelper\PipeDistanceStandardDB.cs" />
     <Compile Include="DBhelper\PipePropertyStandardDB.cs" />
-    <Compile Include="InspectionMVVM\Model\WrongPipe.cs" />
+    <Compile Include="InspectionMVVM\Model\NeedSeletedPipes.cs" />
+    <Compile Include="InspectionMVVM\Model\Pipes.cs" />
     <Compile Include="InspectionMVVM\ViewModel\CommandViewModel.cs" />
-    <Compile Include="InspectionMVVM\ViewModel\SelectPipeViewModel.cs" />
+    <Compile Include="InspectionMVVM\ViewModel\SelectElemsViewModel.cs" />
+    <Compile Include="InspectionMVVM\ViewModel\WrongPageViewModel.cs" />
     <Compile Include="InspectionMVVM\View\WrongPipeView.xaml.cs">
       <DependentUpon>WrongPipeView.xaml</DependentUpon>
     </Compile>

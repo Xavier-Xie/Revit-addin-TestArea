@@ -11,6 +11,9 @@ using Autodesk.Revit.DB.Plumbing;
 using System.Collections.ObjectModel;
 using RevitAPI;
 using Inspection.DBhelper;
+using Inspection.InspectionMVVM.Model;
+using Inspection.InspectionMVVM.ViewModel;
+
 namespace InspectionMVVM.ViewModel
 {
     // ViewModel = Model For View
@@ -22,10 +25,14 @@ namespace InspectionMVVM.ViewModel
         {
             UIDoc = uidoc;
             Doc = uidoc.Document;
+            LoadSelectElems();
             // 在构造函数中关联命令属性和对应方法
             CheckSlopeCommand = new RelayCommand<object>(p => true, p => CheckSlope());
             CheckDiameterCommand = new RelayCommand<object>(p => true, p => CheckDiameter());
-            HorizontalBranchCommand = new RelayCommand<object>(p => true, p => SelectHorizontalBranch());
+            foreach (var item in SelectElems)
+            {
+                item.SelectElemsCommand = new RelayCommand<object>(p => true, p => item.SelectElems(UIDoc));
+            }
         }
 
         private Document Doc { get; }
@@ -49,18 +56,9 @@ namespace InspectionMVVM.ViewModel
                 OnPropertyChanged(nameof(MainWindowView));
             }
         }
-        //数据属性
-        private bool isChecked;
 
-        public bool IsChecked
-        {
-            get { return isChecked; }
-            set
-            {
-                isChecked = value;
-                OnPropertyChanged(nameof(IsChecked));
-            }
-        }
+
+
 
         //检查坡度 命令属性
         public RelayCommand<object> CheckSlopeCommand { get; set; }
@@ -73,8 +71,6 @@ namespace InspectionMVVM.ViewModel
                 var currentView = Doc.ActiveView;
                 if (currentView is View3D view3D)
                 {
-                    HorizontalBranch = ChooseAfterExecute.GetChosenElements(UIDoc);
-
 
 
                 }
@@ -100,12 +96,24 @@ namespace InspectionMVVM.ViewModel
                 var currentView = Doc.ActiveView;
                 if (currentView is View3D view3D)
                 {
-                    foreach(var horizontalBranch in HorizontalBranch)
+                    foreach (var item in selectElems)
                     {
-                        
+                        if (item.SelectedElems != null)
+                        {
+                            PipePropertyStandardDB propertyStandaed = new PipePropertyStandardDB();
+                            var standardDiameter = propertyStandaed.GetDiameter(item.ElemsName);
+                            GetProperties getProperties= new GetProperties();
+
+                            foreach (var element in item.SelectedElems)
+                            {
+                                if (getProperties.GetPipeDiameter(element) > standardDiameter)
+                                {
+                                    TaskDialog.Show("RevitMessage", element.ToString());
+                                }
+                            }
+                        }
                     }
 
-
                 }
                 else
                 {
@@ -118,30 +126,30 @@ namespace InspectionMVVM.ViewModel
             }
         }
 
-        //选择横支管 命令属性
-        Collection<Pipe> HorizontalBranch = new Collection<Pipe>();
+        //SelectElems与窗口第一列的DataGrid绑定，
+        private List<SelectElemsViewModel> selectElems;
 
-        public RelayCommand<object> HorizontalBranchCommand { get; set; }
-
-        private void SelectHorizontalBranch()
+        public List<SelectElemsViewModel> SelectElems
         {
-            //this.MainWindowView.Close();
-            try
+            get { return selectElems; }
+            set
             {
-                var currentView = Doc.ActiveView;
-                if (currentView is View3D view3D)
-                {
-                    HorizontalBranch = ChooseAfterExecute.GetChosenElements(UIDoc);
-                }
-                else
-                {
-                    TaskDialog.Show("规范检查", "请打开3D视图");
-                }
-            }
-            catch (Exception ex)
-            {
-                System.Windows.MessageBox.Show(ex.ToString());
+                selectElems = value; 
+                OnPropertyChanged(nameof(SelectElems));
             }
         }
+        //初始化集合SelectElems
+        private void LoadSelectElems()
+        {
+            NeedSeletedPipes needSeletedPipes= new NeedSeletedPipes();
+            SelectElems = new List<SelectElemsViewModel>();
+            foreach (var Pipe in needSeletedPipes.PipeType)
+            {
+                SelectElemsViewModel item = new SelectElemsViewModel();
+                item.ElemsName = Pipe;
+                SelectElems.Add(item);
+            }
+        }
+
     }
 }

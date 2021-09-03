@@ -10,23 +10,23 @@ namespace RevitAPI
 {
     public class GetProperties
     {
-        public static string GetPipeSlope(Pipe pipe)
+        public string GetPipeSlope(Pipe pipe)
         {
             Parameter pipeSlope = pipe.get_Parameter(BuiltInParameter.RBS_PIPE_SLOPE);
             return pipeSlope.AsValueString();
         }
 
-        public static string GetPipeMaterial(Pipe pipe)
+        public string GetPipeMaterial(Pipe pipe)
         {
             Parameter pipeMaterial = pipe.get_Parameter(BuiltInParameter.RBS_PIPE_MATERIAL_PARAM);
             return pipeMaterial.AsValueString();
         }
 
-        public static double GetPipeDiameter(Pipe pipe)
+        public double GetPipeDiameter(Pipe pipe)
         {
             Parameter pipeDiameter = pipe.get_Parameter(BuiltInParameter.RBS_PIPE_DIAMETER_PARAM);
             double temp = pipeDiameter.AsDouble();
-            return 0.3048 * temp;
+            return 304.8 * temp;
         }
 
     }

@@ -14,7 +14,7 @@ using Inspection.DBhelper;
 using Inspection.InspectionMVVM.Model;
 using Inspection.InspectionMVVM.ViewModel;
 
-namespace InspectionMVVM.ViewModel
+namespace Inspection.InspectionMVVM.ViewModel
 {
     // ViewModel = Model For View
     // MainWindowView 抽象成命令属性和数据属性

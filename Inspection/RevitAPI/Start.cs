@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Autodesk.Revit.UI;
 using Autodesk.Revit.DB;
-using InspectionMVVM.ViewModel;
+using Inspection.InspectionMVVM.ViewModel;
 
 namespace RevitAPI
 {

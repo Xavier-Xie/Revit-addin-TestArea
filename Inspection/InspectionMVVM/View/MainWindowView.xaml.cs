@@ -1,4 +1,5 @@
-﻿using System;
+﻿using InspectionMVVM.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,13 +17,15 @@ using System.Windows.Shapes;
 namespace InspectionMVVM.View
 {
     /// <summary>
-    /// MainWindow.xaml 的交互逻辑
+    /// MainWindowView.xaml 的交互逻辑
     /// </summary>
-    public partial class InspectionView : Window
+    public partial class MainWindowView : Window
     {
-        public InspectionView()
+        public MainWindowView()
         {
             InitializeComponent();
         }
+
+
     }
 }

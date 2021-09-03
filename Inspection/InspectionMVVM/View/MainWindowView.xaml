@@ -1,0 +1,134 @@
+﻿<Window x:Class="InspectionMVVM.View.MainWindowView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="MEP 规范检查"
+        FontFamily="Microsoft YaHei"
+        Height="480" Width="800"
+        WindowStartupLocation="CenterScreen" >
+    <!--优化方案：将Label换成DataGrid 绑定到一个集合-->
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="MainWindowResources.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+
+    <Grid Background="#FFF0F0F0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"  />
+            <ColumnDefinition Width="3*" />
+        </Grid.ColumnDefinitions>
+        <!--区域1-->
+        <Grid Margin="2" Grid.Column="0" Background="#FFCCCCCC">
+            <Grid.RowDefinitions >
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="15*"/>
+                <RowDefinition Height="2*" />
+            </Grid.RowDefinitions>
+
+            <Grid Margin="1" Grid.Row="0"  Background="#FFF0F0F0">
+                <Label Content="请选择对应管道" HorizontalAlignment="Center"  FontWeight="Bold"/>
+            </Grid>
+
+            <StackPanel Grid.Row="1" Margin="1" Background="#FFF0F0F0">
+                <CheckBox Content="入户管" Style="{StaticResource checkboxStyle}" />
+                <CheckBox Content="排出管" Style="{StaticResource checkboxStyle}"/>
+                <CheckBox Content="横支管" Style="{StaticResource checkboxStyle}" 
+                          Command="{Binding HorizontalBranchCommand}" />
+                <CheckBox Content="**管" Style="{StaticResource checkboxStyle}"/>
+                <CheckBox Content="**管" Style="{StaticResource checkboxStyle}"/>
+                <CheckBox Content="**管" Style="{StaticResource checkboxStyle}"/>
+                <CheckBox Content="**管" Style="{StaticResource checkboxStyle}"/>
+                <CheckBox Content="**管" Style="{StaticResource checkboxStyle}"/>
+                <CheckBox Content="**管" Style="{StaticResource checkboxStyle}"/>
+            </StackPanel>
+            <Grid Grid.Row="2" Margin="1" Background="#FFF0F0F0">
+                <Button Content="导出总范围" HorizontalAlignment="Center"  VerticalAlignment="Center" Width="75" 
+                        />
+            </Grid>
+        </Grid>
+        <!--区域2-->
+        <Grid  Grid.Column="1" Margin="2" Background="#FFCCCCCC" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"  />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <!--区域2第1列-->
+            <Grid  Grid.Column="0" Margin="2" Background="#FFF0F0F0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="14*"/>
+                    <RowDefinition Height="2*"/>
+                </Grid.RowDefinitions>
+                <StackPanel Grid.Row="0">
+                    <Label Content="管距检查范围"  HorizontalAlignment="Center"  VerticalAlignment="Top" FontWeight="Bold"/>
+                    <Label Content="可检查以下元素的间距：" />
+                </StackPanel>
+                <StackPanel Grid.Row="1" Margin="3,1,3,1" Background="White" >
+                    <Label Content="引入管" Style="{StaticResource labelStyle}"/>
+                    <Label Content="水平干管" Style="{StaticResource labelStyle}"/>
+                    <Label Content="立管" Style="{StaticResource labelStyle}"/>
+                    <Label Content="支管" Style="{StaticResource labelStyle}"/>
+                    <Label Content="排水管" Style="{StaticResource labelStyle}"/>
+                    <Label Content="其他管道" Style="{StaticResource labelStyle}"/>
+                    <Label Content="墙" Style="{StaticResource labelStyle}"/>
+                </StackPanel>
+                <!--Binding 只命名path未命名source则自动向外迭代寻找DataContext-->
+                <Button Content="检查管距" Style="{StaticResource checkButtonStyle}" />
+            </Grid>
+            <!--区域2第2列-->
+            <Grid  Grid.Column="1" Margin="2" Background="#FFF0F0F0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="14*"/>
+                    <RowDefinition Height="2*"/>
+                </Grid.RowDefinitions>
+                <StackPanel Grid.Row="0">
+                    <Label Content="坡度检查范围" HorizontalAlignment="Center"  VerticalAlignment="Top" FontWeight="Bold"/>
+                    <Label Content="可检查以下管道的坡度:" />
+                </StackPanel>
+                <StackPanel Grid.Row="1" Margin="3,1,3,1" Background="White">
+                    <Label Content="排水横干管" Style="{StaticResource labelStyle}"/>
+                    <Label Content="生活排水管" Style="{StaticResource labelStyle}"/>
+                    <Label Content="重力流排水悬吊管" Style="{StaticResource labelStyle}"/>
+                    <Label Content="雨水排出管" Style="{StaticResource labelStyle}"/>
+                    <Label Content="小区室外生活排水接户管" Style="{StaticResource labelStyle}"/>
+                    <Label Content="小区室外生活排水支管" Style="{StaticResource labelStyle}"/>
+                </StackPanel>
+                <Button Content="检查坡度" Style="{StaticResource checkButtonStyle}" Command="{Binding CheckSlopeCommand}"/>
+            </Grid>
+            <!--区域2第3列-->
+            <Grid  Grid.Column="2" Margin="2" Background="#FFF0F0F0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="14*"/>
+                    <RowDefinition Height="2*"/>
+                </Grid.RowDefinitions>
+                <StackPanel Grid.Row="0">
+                    <Label Content="管径检查范围" HorizontalAlignment="Center" VerticalAlignment="Top" FontWeight="Bold"/>
+                    <Label Content="可检查以下管道的管径" />
+                </StackPanel>
+                <StackPanel Grid.Row="1" Margin="3,1,3,1" Background="White">
+                    <Label Content="排出管" Style="{StaticResource labelStyle}"/>
+                    <Label Content="建筑外墙雨落水管" Style="{StaticResource labelStyle}"/>
+                    <Label Content="雨水排水立管" Style="{StaticResource labelStyle}"/>
+                    <Label Content="重力流排水悬吊管" Style="{StaticResource labelStyle}"/>
+                    <Label Content="满管压力流屋面排水悬吊支管" Style="{StaticResource labelStyle}"/>
+                    <Label Content="雨水排出管" Style="{StaticResource labelStyle}"/>
+                    <Label Content="小区建筑物周围雨水接户管" Style="{StaticResource labelStyle}"/>
+                    <Label Content="小区道路下干管、支管" Style="{StaticResource labelStyle}"/>
+                    <Label Content="建筑物周围明沟雨水口的连接管" Style="{StaticResource labelStyle}"/>
+                    <Label Content="小区室外生活排水接户管" Style="{StaticResource labelStyle}"/>
+                    <Label Content="小区室外生活排水支管" Style="{StaticResource labelStyle}"/>
+                    <Label Content="小区室外生活排水干管" Style="{StaticResource labelStyle}"/>
+                </StackPanel>
+                <Button Content="检查管径" Style="{StaticResource checkButtonStyle}" Command="{Binding CheckDiameterCommand}" />
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>

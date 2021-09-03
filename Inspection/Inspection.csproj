@@ -16,7 +16,7 @@
     <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x64</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -63,19 +63,36 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DBhelper\AccessHelper.cs" />
-    <Compile Include="InspectionMVVM\Model\Electrical.cs" />
-    <Compile Include="RevitAPI\InspectionCommand.cs" />
+    <Compile Include="DBhelper\PipeDistanceStandardDB.cs" />
+    <Compile Include="DBhelper\PipePropertyStandardDB.cs" />
+    <Compile Include="InspectionMVVM\Model\WrongPipe.cs" />
+    <Compile Include="InspectionMVVM\ViewModel\CommandViewModel.cs" />
+    <Compile Include="InspectionMVVM\ViewModel\SelectPipeViewModel.cs" />
+    <Compile Include="InspectionMVVM\View\WrongPipeView.xaml.cs">
+      <DependentUpon>WrongPipeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="RevitAPI\ChooseAfterExecute.cs" />
+    <Compile Include="RevitAPI\GetProperties.cs" />
+    <Compile Include="RevitAPI\Start.cs" />
     <Compile Include="Utilities\RelayCommand.cs" />
     <Compile Include="Utilities\ViewModelBase.cs" />
-    <Page Include="InspectionMVVM\View\InspectionView.xaml">
+    <Page Include="InspectionMVVM\View\MainWindowResources.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="InspectionMVVM\View\MainWindowView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Compile Include="InspectionMVVM\ViewModel\InspectionViewModel.cs" />
-    <Compile Include="InspectionMVVM\View\InspectionView.xaml.cs">
-      <DependentUpon>InspectionView.xaml</DependentUpon>
+    <Compile Include="InspectionMVVM\ViewModel\MainWindowViewModel.cs" />
+    <Compile Include="InspectionMVVM\View\MainWindowView.xaml.cs">
+      <DependentUpon>MainWindowView.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="InspectionMVVM\View\WrongPipeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">

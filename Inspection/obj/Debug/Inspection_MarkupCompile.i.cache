@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 
-1-1159831282
+3620519009
 
-11-1759956683
+18939581170
 151759901214
-InspectionMVVM\View\InspectionView.xaml;
+InspectionMVVM\View\MainWindowResources.xaml;InspectionMVVM\View\MainWindowView.xaml;InspectionMVVM\View\WrongPipeView.xaml;
 
 False
 

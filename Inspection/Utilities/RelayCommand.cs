@@ -7,6 +7,7 @@ using System.Windows.Input;
 
 namespace Utilities
 {
+    //用于传输命令属性
     public class RelayCommand<T> : ICommand
     {
         private readonly Predicate<T> _canExecute;
